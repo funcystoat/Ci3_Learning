@@ -56,3 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['site/about-info'] = 'site/about';
 $route['site/contact'] = 'site/contact_info';
 $route['site/service/(:num)/(:any)'] = 'site/service/$1/$2';
+$route['site/variable'] = 'site/pass_var';
+
+$route['site/insert-data'] = 'site/insert_data_into_table';
