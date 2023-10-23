@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 $active_group = 'default';
-$query_builder = TRUE;
+$query_builder = TRUE; //enables db->insert type methods.
 
 $db['default'] = array(
 	'dsn'	=> '',
@@ -80,7 +80,31 @@ $db['default'] = array(
 	'password' => 'bar',
 	'database' => 'db_ci3',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
+	//Setting dbprefix to table_ would mean that we can just use
+	//users to inserrt data into table_users.
+	'dbprefix' => 'table_',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'), //development hides error messages.
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$db['owt'] = array(
+	'dsn'	=> '',
+	'hostname' => 'localhost',
+	'username' => 'foo',
+	'password' => 'bar',
+	'database' => 'db_ci3_test',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => 'table_',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,

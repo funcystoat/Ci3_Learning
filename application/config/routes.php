@@ -57,5 +57,12 @@ $route['site/about-info'] = 'site/about';
 $route['site/contact'] = 'site/contact_info';
 $route['site/service/(:num)/(:any)'] = 'site/service/$1/$2';
 $route['site/variable'] = 'site/pass_var';
-
 $route['site/insert-data'] = 'site/insert_data_into_table';
+
+$route['action/select-all'] = 'action/get_all_data';
+$route['action/update-data'] = 'action/update_data';
+$route['action/all-users'] = 'action/get_users';
+$route['action/delete-single'] = 'action/delete_single_user';
+$route['action/phone-filter'] = 'action/condition';
+$route['helpers/form'] = 'user/form_helper_study';
+$route['helpers/form-submit'] = 'user/form_submit_method';
