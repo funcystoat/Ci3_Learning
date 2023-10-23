@@ -40,6 +40,16 @@
 -->
 
 <div class="container">
+
+  <?php
+  if ($this->session->flashdata('success')) {
+  ?>
+    <div class="btn btn-success">
+      <?php echo $this->session->flashdata('success') ?>
+    </div>
+  <?php
+  }
+  ?>
   <p>
     <?php
     //echo validation_errors();
@@ -49,13 +59,18 @@
   <?php echo form_open(site_url('helpers/form-submit')); ?>
   <div class="form-group">
     <label for="txt_name">Name:</label>
-    <input type="text" class="form-control" name="txt_name" id="txt_name" placeholder="Enter name">
+    <input type="text" class="form-control" name="txt_name" id="name" placeholder="Enter name">
     <?php echo form_error('txt_name', '<div class="error">', '</div>'); ?>
   </div>
   <div class="form-group">
     <label for="txt_email">Email:</label>
     <input type="email" class="form-control" id="email" placeholder="Enter email" name="txt_email">
     <?php echo form_error('txt_email', '<div class="error">', '</div>'); ?>
+  </div>
+  <div class="form-group">
+    <label for="txt_phone">Phone no:</label>
+    <input type="text" class="form-control" name="txt_phone" id="phone" placeholder="Enter phone number">
+    <?php echo form_error('txt_phone', '<div class="error">', '</div>'); ?>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
   <?php echo form_close(); ?>

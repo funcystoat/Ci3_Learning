@@ -1,21 +1,16 @@
 <?php
 
-class User extends CI_Controller
-{
+class User extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
-        $this->load->helper(array(
-            'form_helper',
-            'url'
-        ));
 
-        $this->load->library('form_validation');
+        $this->load->helper(array('form_helper', 'url'));
+        $this->load->library(array('form_validation', 'session'));
+        $this->load->model('user_model');
     }
 
-    public function form_helper_study()
-    {
+    public function form_helper_study() {
         //echo base_url();
         //echo "<br/>";
         //echo site_url(); // contains the index.php in the url
@@ -31,8 +26,7 @@ class User extends CI_Controller
         $this->load->view('user/form');
     }
 
-    public function form_submit_method()
-    {
+    public function form_submit_method() {
         $config_rules = array(
             array(
                 'field' => 'txt_name',
@@ -42,7 +36,12 @@ class User extends CI_Controller
             array(
                 'field' => 'txt_email',
                 'label' => 'Email',
-                'rules' => 'required|min_length[6]|callback_does_email_exist'
+                'rules' => 'required|min_length[6]|is_unique[table_users.email]'
+            ),
+            array(
+                'field' => 'txt_phone',
+                'label' => 'phone_no',
+                'rules' => 'required'
             )
         );
 
@@ -55,16 +54,26 @@ class User extends CI_Controller
 
             $this->form_helper_study();
         } else {
-            //submitted 
-            // we are going to take data from our form
             $data = $this->input->post();
-            echo '<h4>Form Data</h4>';
-            echo $data['txt_name'] . ", " . $data['txt_email'];
+
+            $data_array = array(
+                'name' => $data['txt_name'],
+                'email' => $data['txt_email'],
+                'phone_no' => $data['txt_phone']
+            );
+
+            $res_val = $this->user_model->insert_into_users_table($data_array);
+            if ($res_val) {
+                $this->session->set_flashdata('success', 'User has been created successfully!');
+                redirect('helpers/form');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to create user...');
+                redirect('helpers/form');
+            }
         }
     }
 
-    public function does_email_exist($value)
-    {
+    public function does_email_exist($value) {
         $valid_emails = array(
             'online@gmail.com',
             'onlinewebtutor@gmail.com',
