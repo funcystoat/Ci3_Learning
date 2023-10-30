@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -66,3 +66,18 @@ $route['action/delete-single'] = 'action/delete_single_user';
 $route['action/phone-filter'] = 'action/condition';
 $route['helpers/form'] = 'user/form_helper_study';
 $route['helpers/form-submit'] = 'user/form_submit_method';
+$route['users/list'] = 'user/list_all_users';
+
+$route['add-session'] = 'mysession/add_session';
+$route['get-sessions'] = 'mysession/get_session';
+$route['remove-session'] = 'mysession/remove_session';
+
+//File Upload Library Routes
+$route['form-upload'] = 'myupload/my_upload_form';
+$route['submit-file'] = 'myupload/upload_my_files';
+
+//echo date("YmdHis");
+$route['my-uri'] = 'myuri';
+$route['my-segments'] = 'myuri/my_segments';
+
+$route['custom-library'] = 'myuri/run';

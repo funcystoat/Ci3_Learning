@@ -50,8 +50,6 @@ class User extends CI_Controller {
         //$this->form_validation->set_rules('txt_email', 'Email', 'required|min_length[6]|callback_does_email_exist');
 
         if (!$this->form_validation->run()) {
-            //error
-
             $this->form_helper_study();
         } else {
             $data = $this->input->post();
@@ -94,6 +92,13 @@ class User extends CI_Controller {
             'does_email_exist',
             'The {field} is already taken. Try another email.'
         );
+
         return false;
+    }
+
+    public function list_all_users() {
+        $list_users = $this->user_model->get_all_users();
+        $data['all_users'] = $list_users;
+        $this->load->view('user/list-users', $data);
     }
 }
