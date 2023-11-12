@@ -81,3 +81,23 @@ $route['my-uri'] = 'myuri';
 $route['my-segments'] = 'myuri/my_segments';
 
 $route['custom-library'] = 'myuri/run';
+
+$route['my-input-form'] = 'myuri/my_html';
+$route['submit-form-data'] = 'myuri/submit_form_data';
+
+$route['learn-helpers'] = 'learnhelpers/helper_class';
+$route['learn-string-helpers'] = 'learnhelpers/string_helper';
+$route['learn-captcha-helpers'] = 'learnhelpers/learn_captcha';
+
+$route['my-form'] = 'learnhelpers/my_form';
+
+$route['my-captcha'] = 'learnhelpers/my_captcha_form';
+$route['my_captcha_submit'] = 'learnhelpers/my_captcha_form_submit';
+
+$route['myfile'] = 'learnhelpers/my_file_helper';
+
+$route['mydirectory'] = "learnhelpers/my_working_directory";
+
+$route['inflector'] = "learnhelpers/my_call_inflector";
+
+$route['myCustomHelper'] = "learnhelpers/my_custom_helper";

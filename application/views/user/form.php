@@ -51,9 +51,6 @@
     </div>
   <?php endif; ?>
   <p>
-    <?php
-    //echo validation_errors();
-    ?>
   </p>
   <a href="<?php echo site_url('users/list') ?>" class="btn btn-primary pull-right">List Users</a>
   <h3>User Form</h3>
@@ -76,7 +73,6 @@
   <button type="submit" class="btn btn-default">Submit</button>
   <?php echo form_close(); ?>
 </div>
-
 </body>
 
 </html>

@@ -29,6 +29,19 @@ class Myuri extends CI_Controller {
     }
 
     function run() {
-        echo $this->myfunctions->remove_space('THE KINGDOM OF ALABASTA LIVES ON!');
+        //echo $this->myfunctions->remove_space('THE KINGDOM OF ALABASTA LIVES ON!');
+        //echo $this->myfunctions->my_base_url();
+        //$this->myfunctions->my_session_store("name", "Awkward Aardvark");
+        echo $this->myfunctions->my_session_get("name");
+    }
+
+    public function my_html() {
+        $this->load->view('input_html');
+    }
+
+    public function submit_form_data() {
+        $data = $this->input->post();
+        //print_r($data);
+        echo $this->input->post("txt_name");
     }
 }
